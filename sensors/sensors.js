@@ -1,9 +1,31 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.4";
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.5";
 window.addEventListener('deviceorientation', ondeviceorientation);
 
 window.addEventListener('devicemotion', ondevicemotion);
 
-function deseneaza_patrat_canvas(alpha, beta, gamma)
+function deseneaza_patrat_canvas(alpha,gamma, beta)
+{
+	var canvas = document.getElementById("id_canvas");
+	var context = canvas.getContext("2d");
+	
+	context.clearRect(0, 0, h, w);
+	context.beginPath();
+	var w = canvas.getAttribute("width");
+	var h = canvas.getAttribute("height");
+
+	
+
+	var centru = {x:w / 2, y:h / 2};
+	var latura = 10;
+	var max_deplasare_x = w / 2 - latura;
+	var max_deplasare_y = h / 2 - latura;
+	
+	//context.arc(centru.x + gamma / 90 * max_deplasare_x, centru.y + beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
+	context.strokeRect(centru.x - latura / 2 + gamma / 90 * max_deplasare_x, centru.y - latura / 2 + beta / 90 * max_deplasare_y, latura, latura);
+	context.stroke();
+}
+
+function deseneaza_cerc_canvas(beta, gamma)
 {
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
@@ -44,27 +66,7 @@ function deseneaza_cerc_svg(gamma, beta)
 	cerc.setAttribute("cy", centru.y + beta / 90 * max_deplasare_y);
 }
 //---------------------------------------------------------------
-function deseneaza_cerc_canvas(gamma, beta)
-{
-	var canvas = document.getElementById("id_canvas");
-	var context = canvas.getContext("2d");
-	
-	context.clearRect(0, 0, h, w);
-	context.beginPath();
-	var w = canvas.getAttribute("width");
-	var h = canvas.getAttribute("height");
 
-	
-
-	var centru = {x:w / 2, y:h / 2};
-	var latura = 10;
-	var max_deplasare_x = w / 2 - raza;
-	var max_deplasare_y = h / 2 - raza;
-	
-	//context.arc(centru.x + gamma / 90 * max_deplasare_x, centru.y + beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
-	context.strokeRect(centru.x - latura / 2 + gamma / 90 * max_deplasare_x, centru.y - latura / 2 + beta / 90 * max_deplasare_y, latura, latura);
-	context.stroke();
-}
 
 //---------------------------------------------------------------
 function ondeviceorientation(event) 
