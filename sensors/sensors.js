@@ -13,6 +13,8 @@ function deseneaza_cerc(gamma, beta)
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 
+	context.clearRect(0, 0, h, w);
+
 	var centru = {x:w / 2, y:h / 2};
 	var raza = 10;
 	var max_deplasare_x = w / 2 - raza;
