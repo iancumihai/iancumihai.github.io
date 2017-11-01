@@ -1,4 +1,4 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.5";
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.7";
 window.addEventListener('deviceorientation', ondeviceorientation);
 
 window.addEventListener('devicemotion', ondevicemotion);
@@ -6,22 +6,28 @@ window.addEventListener('devicemotion', ondevicemotion);
 function deseneaza_patrat_canvas(alpha,gamma, beta)
 {
 	var canvas = document.getElementById("id_canvas");
+
+	context.resetTransform();
 	var context = canvas.getContext("2d");
 	
+	
 	context.clearRect(0, 0, h, w);
-	context.beginPath();
+
+	
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 
-	
-
 	var centru = {x:w / 2, y:h / 2};
-	var latura = 10;
+	var latura = 20;
 	var max_deplasare_x = w / 2 - latura;
 	var max_deplasare_y = h / 2 - latura;
+
+	var centru_patrat = {x: centru.x + gamma / 90 * max_deplasare_x, y: centru.y + beta / 90 * max_deplasare_y};
+	context.translate(centru_patrat.x,centru_patrat.y); 
+	context.rotate(alpha / 180 * Math.PI);
 	
-	//context.arc(centru.x + gamma / 90 * max_deplasare_x, centru.y + beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
-	context.strokeRect(centru.x - latura / 2 + gamma / 90 * max_deplasare_x, centru.y - latura / 2 + beta / 90 * max_deplasare_y, latura, latura);
+	context.beginPath();
+	context.strokeRect(-latura / 2, -latura / 2, latura, latura);
 	context.stroke();
 }
 
