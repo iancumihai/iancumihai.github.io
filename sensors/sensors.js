@@ -1,4 +1,4 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.2";
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.3";
 window.addEventListener('deviceorientation', ondeviceorientation);
 
 window.addEventListener('devicemotion', ondevicemotion);
@@ -56,7 +56,7 @@ function ondeviceorientation(event)
 	document.getElementById("id_beta").innerHTML ="beta= " + Math.round(beta * 10) / 10;
 	document.getElementById("id_gamma").innerHTML ="gama= " + Math.round(gamma * 10) / 10;
 
-	deseneaza_cerc_canvas(gamma, beta);
+	//deseneaza_cerc_canvas(gamma, beta);
 	deseneaza_cerc_svg(gamm, beta);
 }
 //---------------------------------------------------------------
