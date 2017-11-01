@@ -24,6 +24,7 @@ function deseneaza_cerc(gamma, beta)
 
 	context.stroke();
 }
+//---------------------------------------------------------------
 function ondeviceorientation(event) 
 { 
 	var alpha = event.alpha;
