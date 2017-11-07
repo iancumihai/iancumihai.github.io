@@ -7,7 +7,7 @@ function deseneaza_patrat_canvas(alpha,gamma, beta)
 {
 	var canvas = document.getElementById("id_canvas");
 
-	context.resetTransform();
+	context.setTransform();
 	var context = canvas.getContext("2d");
 	
 	
