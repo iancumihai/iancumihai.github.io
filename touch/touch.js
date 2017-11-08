@@ -1,10 +1,11 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.08.9";
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.08.10";
 
 var canvas = document.getElementById("id_canvas");
 var context = canvas.getContext("2d");
 var rect = canvas.getBoundingClientRect();
 canvas.addEventListener("touchstart", on_touch_start);
 canvas.addEventListener("touchmove", on_touch_move);
+canvas.addEventListener("touchend", on_touch_end);
 
 var touch_id = [];
 //--------------------------------------------------
@@ -55,5 +56,21 @@ function on_touch_move(e)
 		context.stroke();
 		touch_id[j].x = touches[i].pageX;
 		touch_id[j].y = touches[i].pageY;
+	}
+}
+//--------------------------------------------------
+function on_touch_end(e)
+{
+	e.preventDefault();
+	var touches = e.changedTouches;
+	for (var i = 0; i < touches.length; i++){
+		var j;
+		for (j = 0; j < touch_id.length; j++)
+			if(touches[i].identifier == touch_id[j].id){
+				color = touch_id[j].color;
+				break;
+			}
+		// trebuie sters touch_id[j]
+		touch_id.splice(j, 1);
 	}
 }
