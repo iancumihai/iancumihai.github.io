@@ -1,4 +1,4 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.08.7";
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.08.9";
 
 var canvas = document.getElementById("id_canvas");
 var context = canvas.getContext("2d");
@@ -22,7 +22,7 @@ function on_touch_start(e)
 	e.preventDefault();
 	var touches = e.changedTouches;
 	for (var i = 0; i < touches.length; i++){
-		touch_id.push({id:touches[i].identifier, color:generate_random_color()});
+		touch_id.push({id:touches[i].identifier, color:generate_random_color(), x:touches[i].pageX, y:touches[i].pageY});
 		context.beginPath();
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = touch_id[touch_id.length - 1].color;
@@ -38,16 +38,22 @@ function on_touch_move(e)
 	var touches = e.changedTouches;
 	for (var i = 0; i < touches.length; i++){
 		var color = "#FFFFFF";
-		for (var j = 0; j < touch_id.length; j++)
+		var j;
+		for (j = 0; j < touch_id.length; j++)
 			if(touches[i].identifier == touch_id[j].id){
 				color = touch_id[j].color;
 				break;
 			}
 		context.beginPath();
+		context.moveTo(touch_id[j].x - rect.left, touch_id[j].y - rect.top);
+		context.lineWidth = 20;
+		context.lineTo(touches[i].pageX - rect.left, touches[i].pageY - rect.top);
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = color;
 		context.fillStyle = color;
 		context.fill();
 		context.stroke();
+		touch_id[j].x = touches[i].pageX;
+		touch_id[j].y = touches[i].pageY;
 	}
 }
