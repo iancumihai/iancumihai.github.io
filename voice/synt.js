@@ -17,7 +17,7 @@ function get_voices()
 function speak()
 {
 	var enunt = new SpeechSynthesisUtterance();
-	enunt.lang = "en-US";
+	enunt.lang = document.getElementById("id_voices").value;
 	enunt.text = document.getElementById("id_text").value;
 	
 	enunt.onerror = function(e){
