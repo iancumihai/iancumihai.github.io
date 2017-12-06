@@ -2,7 +2,7 @@ document.getElementById("id_logic_level_version").innerHTML = "Business level ve
 
 
 
-navigator.geolocation.getCurrentPosition(on_gps_success, on_gps_error);
+navigator.geolocation.watchPosition(on_gps_success, on_gps_error);
 
 //-----------------------------------------------------------------------------
 function on_gps_success(p)
