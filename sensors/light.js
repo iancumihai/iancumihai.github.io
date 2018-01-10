@@ -5,7 +5,7 @@ document.getElementById("id_logic_level_version").innerHTML =
 
 window.addEventListener("devicelight", device_light);
 
-function devicelight(e) 
+function device_light(e) 
 {
 	document.getElementById("id_light").innerHTML = 
 	"value = " + e.value + "max = " + e.max;
