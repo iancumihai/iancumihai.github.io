@@ -1,8 +1,3 @@
-var d = new Date();
-document.getElementById("id_logic_level_version").innerHTML = 
-	"Business level version:" + 
-	d.getFullYear() + "." + d.getMonth() + "1" + "." + d.getDate()+".4";
-
 document.addEventListener("touchstart", start_timer);
 document.addEventListener("touchend", stop_timer);
 
