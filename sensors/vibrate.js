@@ -7,5 +7,5 @@ document.addEventListener("touchstart", vibrate);
 
 function vibrate()
 {
-	windows.navigator.vibrate(200);
+	windows.navigator.vibrate([200, 200, 500, 200, 1000]);
 }
