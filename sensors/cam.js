@@ -8,7 +8,6 @@ navigator.mediaDevices.getUserMedia(constraints).then(on_success).catch(on_error
 
 var video = document.getElementById("id_video");
 video.addEventListener("touchstart", snap);
-video.addEventListener("")
 //-----------------------------------------------------
 function on_success(stream )
 {
