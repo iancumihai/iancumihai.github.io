@@ -1,7 +1,7 @@
 var d = new Date();
 document.getElementById("id_logic_level_version").innerHTML = 
 	"Business level version:" + 
-	d.getFullYear() + "." + d.getMonth() + "1" + "." + d.getDate()+".2";
+	d.getFullYear() + "." + d.getMonth() + "1" + "." + d.getDate()+".3";
 
 var constraints = {audio:true, video:{facingMode:"environment"}};
 navigator.mediaDevices.getUserMedia(constraints).then(on_success).catch(on_error);
