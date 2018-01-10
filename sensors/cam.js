@@ -8,6 +8,7 @@ navigator.mediaDevices.getUserMedia(constraints).then(on_success).catch(on_error
 
 var video = document.getElementById("id_video");
 video.addEventListener("touchstart", snap);
+video.addEventListener("")
 //-----------------------------------------------------
 function on_success(stream )
 {
@@ -22,6 +23,6 @@ function on_error(error)
 function snap()
 {
 	var canvas = document.getElementById("id_canvas");
-	var context = canvas.getContext("2D");
+	var context = canvas.getContext("2d");
 	context.drawImage(video, 0, 0, 640, 480);
 }
